@@ -2,6 +2,7 @@ package com.example.repository;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -21,12 +22,13 @@ public class MemberRepository {
 		return member;
 	};
 	
+	@Autowired
 	private NamedParameterJdbcTemplate template;
 	
 	public List<Member> searchName(String searchWord){
 		String sql = "SELECT id,name,age,dep_id FROM members WHERE name LIKE :searchWord;";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("searchWord","%"+ searchWord + "%");
-		List<Member>list = template.query(sql, param,MEMBER_ROW_MAPPER);
+		List<Member>list = template.query(sql,param,MEMBER_ROW_MAPPER);
 		return list;
 	}
 
