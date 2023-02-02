@@ -20,8 +20,8 @@ public class Exam04Controller {
 		return "exam04";
 	}
 
-	@PostMapping("/to-result")
-	public String toResult(@Validated UserForm form,BindingResult result, Model model) {
+	@PostMapping("/register-user")
+	public String registerUser(@Validated UserForm form,BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return index(form,model);
 		}

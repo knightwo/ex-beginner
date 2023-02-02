@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>ユーザー登録</h1>
-<form action="exam04-result" th:action="@{/exam04/to-result}" method="post" th:object="${userForm}">
+<form action="exam04-result" th:action="@{/exam04/register-user}" method="post" th:object="${userForm}">
 <div th:errors="*{name}" style="color:red">エラー</div>
 名前：<input type="text" name="name" th:field=*{name}><br>
 <div th:errors="*{age}" style="color:red">エラー</div>
